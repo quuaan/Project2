@@ -17,15 +17,19 @@ app.use(bodyParser.urlencoded({extended: false})); // parse urlencoded req bodie
 app.use(bodyParser.json()); // parse json req bodies (for POST and PUT requests)
 
 // set up view middleware/public directory for static assets
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-// app.use(express.static(path.join(__dirname, 'public')))
+app.set('view', path.join(__dirname, 'view'));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')))
 
 //Handle get request to the root route
 
-app.get('/', (req,res) =>{
-  res.render('server')
-})
+// app.get('/', (req,res) =>{
+//   res.send('hi there');
+// });
+
+//  app.get("/bye", (req, res) => {
+//   res.send("suck some dick fam!! ");
+//  });
 
 //Listen on PORT
 app.listen(PORT, ()=>{
