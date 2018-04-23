@@ -1,30 +1,34 @@
 \c nba_db
 
-DROP TABLE IF EXISTS favPlayer;
-DROP TABLE IF EXISTS favTeam;
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE favPlayer (
-  favPlayer_id SERIAL PRIMARY KEY,
-  player_id INTEGER ,
-  user_id INTEGER
+
+CREATE TABLE players (
+  playerId SERIAL PRIMARY KEY,
+  firstName VARCHAR(255),
+  lastName VARCHAR(255),
+  fullName VARCHAR(500),
+  teamTableId INT REFERENCES nbaTeams(teamTableId),
+  customTeamId INT
 );
 
-
-
-CREATE TABLE favTeam (
-  favTeam_id SERIAL PRIMARY KEY,
-  team_id INTEGER,
-  user_id INTEGER
+CREATE TABLE users (
+  userid SERIAL PRIMARY KEY,
+  username VARCHAR(255),
+  password TEXT               -- * change for hashing
 );
 
+CREATE TABLE teams (
+  customTeamId SERIAL PRIMARY KEY,
+  customTeamName VARCHAR(255),
+  customTeamOwner INT REFERENCES users(userId),
 
-CREATE TABLE user (
-  user_id SERIAL PRIMARY KEY,
-  username VARCHAR (255),
-  pssaword VARCHAR (255)
-
+  playerOne INT REFERENCES players(playerId),
+  playerTwo INT REFERENCES players(playerId),
+  playerThree INT REFERENCES players(playerId),
+  playerFour INT REFERENCES players(playerId),
+  playerFive INT REFERENCES players(playerId)
 );
-
-
 
