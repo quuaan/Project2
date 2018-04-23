@@ -1,0 +1,55 @@
+<div class="player-info">
+
+  <h3 class="player-info-title"> <%= player.commonPlayerInfo[0].firstName %> <%= player.commonPlayerInfo[0].lastName %> </h3>
+  <!-- <% if (player.commonPlayerInfo[0].firstName === 'Kristaps') { %>
+    <p><%= player.commonPlayerInfo[0].lastName %></p>
+  <% } %> -->
+<br/>
+  <h4 class="player-info-team"> &laquo; <%= player.commonPlayerInfo[0].teamCity %> <%= player.commonPlayerInfo[0].teamName %> &raquo; </h4>
+
+  <hr/>
+
+
+  <img class="player-avatar" src="http://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/<%= player.commonPlayerInfo[0].personId %>.png">
+  <hr/>
+  <!-- <br/><br/><a class="nba-com-link" href="https://stats.nba.com/player/<%= player.commonPlayerInfo[0].personId %>" target="_blank"><strong>Advanced Stats on NBA.com</strong></a> -->
+
+
+
+  <p class="player-info-content-headline">
+      <strong>Points</strong> - <%= player.playerHeadlineStats[0].pts %>
+      <br/> <strong>Rebounds</strong> - <%= player.playerHeadlineStats[0].reb %>
+      <br/> <strong>Assists</strong> - <%= player.playerHeadlineStats[0].ast %>
+    </p>
+
+    <p class="player-info-content">
+      <strong>PIE (Player Impact) Rating:</strong> <%= ((player.playerHeadlineStats[0].pie)*100).toFixed(2) %>%
+      <br/><br/><strong>Position:</strong> <%= player.commonPlayerInfo[0].position %>
+      <br/><strong>Height:</strong> <%= player.commonPlayerInfo[0].height %>
+      <br/><strong>Weight:</strong> <%= player.commonPlayerInfo[0].weight %> lbs
+      <br/><strong>Drafted:</strong> <%= player.commonPlayerInfo[0].draftYear %>
+          <% if ( player.commonPlayerInfo[0].draftYear != 'Undrafted') { %> (Round: <%= player.commonPlayerInfo[0].draftRound %>, Pick#: <%= player.commonPlayerInfo[0].draftNumber %>)  <% } %>
+    </p>
+
+    <a class="nba-com-link" href="https://stats.nba.com/player/<%= player.commonPlayerInfo[0].personId %>" target="_blank"><strong>More Stats on NBA.com</strong></a>
+
+  <br/><br/><br/>
+
+    <a href="/nba/addToTeam/<%= player.commonPlayerInfo[0].personId %>"<button type="submit" class="add-to-team">Add to Team</button></a>
+
+<br/><br/>
+<!-- <a href="https://stats.nba.com/player/<%= player.commonPlayerInfo[0].personId %>" target="_blank"><strong>View NBA.com Player Stats</strong></a> -->
+<hr/>
+<a href="/nba/team/<%= player.commonPlayerInfo[0].teamId %>">View all <%= player.commonPlayerInfo[0].teamCity %> <%= player.commonPlayerInfo[0].teamName %> players</a>
+<br/><br/>
+<a href="/nba/searchByName">Search again by player name</a>
+<br/>
+<a href="/nba/searchByTeam">Search again by team</a>
+
+
+<hr/><br/>
+
+<!-- <button type="submit" class="add-to-team">Add to Team</button> -->
+  <br/><br/>
+
+</div>

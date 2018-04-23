@@ -1,0 +1,28 @@
+<% include ../partials/boilerplate %>
+
+<div class="pg-title-header">
+    <h1>Search Active NBA Teams</h1>
+  </div>
+
+  <hr/>
+
+  <!-- <p> <%= data %> </p> -->
+
+  <form class="login-main-form" action="/nba/searchByTeam" method="POST">
+    <label>Select Team</label>
+    <br/><br/>
+    <select class="nba-team-select" name="nbateamselect">
+
+
+      <% data.forEach(team => { %>
+        <option class="nba-team-option" value="<%= team.nbateamid %>"><%= team.teamcity %> <%= team.teamname %> </option>
+        <% }) %>
+
+          </select>
+
+    <br/><br/>
+      <button type="submit" class="search-teams">Search Players</button>
+
+    </form>
+
+  <% include ../partials/end %>

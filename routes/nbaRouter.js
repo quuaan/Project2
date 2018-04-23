@@ -1,5 +1,4 @@
 
-
 // Import express to get the router
 const nbaRouter = require('express').Router()
 const nbaController = require('../controllers/nbaController');

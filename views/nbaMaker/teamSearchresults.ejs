@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+
+<% include ../partials/boilerplate %>
+
+<div class="pg-title-header">
+    <h1>Team Search API Results</h1>
+  </div>
+
+
+<!-- <h2>   <%= //team  %> </h2> -->
+
+<% players.forEach(player => {  %>
+    <% include ../partials/player-info-list %>
+<% }); %>
+
+
+<% include ../partials/end %>
