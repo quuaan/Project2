@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const nbaRouter = require('./routes/nbaRouter');
-const userRouter = require('./routes/userRouter');
+
 
 
 // ***  Middleware
@@ -28,12 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // *** Root route
 app.get('/', (req, res) => {
-  res.send('<div style="text-align:center;padding:20px">Hi there <br/><br/><a href="http://localhost:3000/nba">Go to NBA Maker app</a></div>');
+  res.send('<div style="text-align:center;padding:20px">Hi there <br/><br/><a href="/nba">Go to NBA Maker app</a></div>');
 });
 
 // *** Routers
 app.use('/nba', nbaRouter);
-app.use('/user', userRouter);
+
 
 
 // Listen on PORT
