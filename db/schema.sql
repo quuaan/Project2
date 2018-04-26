@@ -20,15 +20,3 @@ CREATE TABLE users (
   password TEXT               -- * change for hashing
 );
 
-CREATE TABLE teams (
-  customTeamId SERIAL PRIMARY KEY,
-  customTeamName VARCHAR(255),
-  customTeamOwner INT REFERENCES users(userId),
-
-  playerOne INT REFERENCES players(playerId),
-  playerTwo INT REFERENCES players(playerId),
-  playerThree INT REFERENCES players(playerId),
-  playerFour INT REFERENCES players(playerId),
-  playerFive INT REFERENCES players(playerId)
-);
-
